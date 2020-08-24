@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="rounding_tree_view" model="ir.ui.view">
+            <field name="name">hms.doctor.tree</field>
+            <field name="model">hms.doctor</field>
+            <field name="arch" type="xml">
+                <tree string="Tree">
+                    <field name="name"/>
+                    
+                    <field name="doctor_type"/>
+                </tree>
+            </field>
+        </record>
+
+       
+        <record id="action_account_fiscal_year_form" model="ir.ui.view">
+            <field name="name"></field>
+            <field name="model">hms.doctor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                            <field name="name" />
+                            <field name="mobile_No"/>
+                            <field name="amount"/>
+                            <field name= "doctor_type"/>
+                            <field name="doctor_name_id"/>
+                            <field name="note"/>
+                        
+                           <!--  <field name="company_id" groups="base.group_multi_company"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+           <record id="rounding_list_action" model="ir.actions.act_window">
+            <field name="name">name</field>
+            <field name="res_model">hms.doctor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
+            </field>
+        </record>
+
+
+        <menuitem id="menu_action_rounding_form_view" action="rounding_list_action"
+                  sequence="4"/>
+</odoo>

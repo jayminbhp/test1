@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="rounding_tree_view" model="ir.ui.view">
+            <field name="name">hmspatient_tree</field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <tree string="Tree">
+                    <field name="name"/>
+                    <field name="patient_type"/>
+                    
+                </tree>
+            </field>
+        </record>
+        <record id="hmspatient_tree" model="ir.ui.view">
+            <field name="name"></field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                          <group>
+                              <field name="name"/>
+                              <field name="patient_type"/>
+                              <field name="patient_name_id"/>
+                              <field name="note"/>
+                            <!-- <field name="patient_id"/> -->
+                            
+                            
+                           
+                            <!-- <field name="company_id" groups="base.group_multi_company"/> -->
+                           </group>
+                           <group>
+                              <field name="patient_pic" widget='image' class="oe_avatar"/>
+                              <field name="mobile"/>
+                              <field name="amount_id"/>
+                              <!-- <field name="doc_name"/> -->
+                              <field name="patient_code"/>
+
+                            </group>
+                            
+                                
+                            
+                        </group>
+                      <notebook>
+                          <page string="Personel Information">
+                           <group>
+                              <group>
+                                 <field name="patient_add"/>
+                                 <field name="E_mail_Id"/>
+                                 
+
+                              </group>
+                              <group>
+                                 <field name="Date_of_Birth"/>
+                                 <field name="online_booking"/>
+                              </group>
+
+                           </group>                      
+                          </page>
+                      </notebook>
+                      <notebook>
+
+                        <page string="Consultant">
+                           <!-- <group> -->
+                             <field name="doc_name">
+                                         <tree string="Tree">
+                                            <field name="name"/>       
+                                            <field name="patient"/>
+                                            <field name="doctor_name"/>
+                                         </tree>
+                               </field>
+                           <!-- </group>                       -->
+                          </page>
+                      </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="rounding_list_action" model="ir.actions.act_window">
+            <field name="name">name</field>
+            <field name="res_model">hms.patient</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
+            </field>
+        </record>
+        <menuitem id="menu_action_rounding_form_view" action="rounding_list_action"
+                    sequence="4"/>
+
+
+
+</odoo>
+
