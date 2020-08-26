@@ -6,9 +6,12 @@
             <field name="model">hms.patient</field>
             <field name="arch" type="xml">
                 <tree string="Tree">
-                    <field name="name"/>
+                    <field name="name"/> 
                     <field name="patient_type"/>
-                    
+                    <!-- <field name="patient_name_id"/> -->
+                    <field name="note"/>
+                    <field name="mobile"/>
+
                 </tree>
             </field>
         </record>
@@ -21,11 +24,11 @@
                         <group>
 
                           <group>
-                              <field name="name"/>
+                              <field name="name"/> 
                               <field name="patient_type"/>
                               <field name="patient_name_id"/>
                               <field name="note"/>
-                            <!-- <field name="patient_id"/> -->
+                              <!-- <field name="patient_id"/> -->
                             
                             
                            
@@ -64,13 +67,13 @@
 
                         <page string="Consultant">
                            <!-- <group> -->
-                             <field name="doc_name">
-                                         <tree string="Tree">
-                                            <field name="name"/>       
-                                            <field name="patient"/>
-                                            <field name="doctor_name"/>
-                                         </tree>
-                               </field>
+                             <!-- <field name="doctor_name_id"> -->
+                                         <!-- <tree string="Tree"> -->
+                                            <!-- <field name="name"/>        -->
+                                            <!-- <field name="patient"/> -->
+                                            <!-- <field name="doctor_name_id"/> -->
+                                         <!-- </tree> -->
+                               <!-- </field> -->
                            <!-- </group>                       -->
                           </page>
                       </notebook>
@@ -80,7 +83,7 @@
             </field>
         </record>
         <record id="rounding_list_action" model="ir.actions.act_window">
-            <field name="name">name</field>
+            <!-- <field name="name">Patient</field> -->
             <field name="res_model">hms.patient</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">

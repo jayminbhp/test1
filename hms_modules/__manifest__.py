@@ -12,7 +12,9 @@ This module contains all the common features of hospial management system and he
     'depends': ['base'],
     'data': [
      'view/view.xml',
-    
+     'view/appointment.xml',
+     'view/physician.xml',
+
     'security/ir.model.access.csv'
     ],
     'demo': [

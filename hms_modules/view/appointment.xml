@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+       <record id="hms_appointment_tree" model="ir.ui.view">
+            <field name="name">hmsappointment_tree</field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <tree string="Tree">
+                  <field name="patient_id"/>
+                  <field name="phy_cabin_id"/>
+                  <field name="app_date"/>
+                  <field name="app_urgency_level"/>
+                              <!-- <field name="doc_name"/> -->
+                  <field name="app_purpose"/>
+                  <field name="app_state"/>
+                    <!-- <field name="patient_id"/>
+                    <field name="phy_cabin_id"/>
+                    <field name="app_urgency_level"/>
+                    <field name="app_date"/>
+                    <! <field name="mobile"/> -->
+
+                </tree>
+            </field>
+        </record>
+        <record id="hms_appointment_form" model="ir.ui.view">
+            <field name="name"></field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                          <group>
+                              <field name="patient_id"/>
+                              <field name="phy_cabin_id"/>
+                              <!-- <field name="patient_name_id"/> -->
+                              <!-- <field name="note"/> -->
+                              <!-- <field name="patient_id"/> -->
+                            
+                            
+                           
+                            <!-- <field name="company_id" groups="base.group_multi_company"/> -->
+                           </group>
+                           <group>
+                              <!-- <field name="patient_pic" widget='image' class="oe_avatar"/> -->
+                              <field name="app_date"/>
+                              <field name="app_urgency_level"/>
+                              <!-- <field name="doc_name"/> -->
+                              <field name="app_purpose"/>
+                              <field name="app_state"/>
+
+                            </group>
+                            
+                                
+                            
+                        </group>
+                      <notebook>
+                          <page string="Patient Information">
+
+                           <group>
+                              <group>
+                                 <field name="app_complain"/>
+                                 <field name="app_responsible_jr_doc"/>
+                                 
+
+                              </group>
+                              <group>
+                                 <field name="app_chief_comp"/>
+                                 <field name="app_history_illness"/>
+                              </group>
+
+                           </group>                      
+                          </page>
+                      </notebook>
+                      <!-- <notebook>
+
+                        <page string="Consultant">
+                           <! <group> -->
+                             <!-- <field name="doc_name"> -->
+                                         <!-- <tree string="Tree"> -->
+                                            <!-- <field name="name"/>        -->
+                                            <!-- <field name="patient"/> -->
+                                            <!-- <field name="doctor_name"/> -->
+                                         <!-- </tree> -->
+                               <!-- </field> -->
+                           <!-- </group>                       -->
+                          <!-- </page> -->
+                      <!-- </notebook>  -->
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="hms_appointment_action" model="ir.actions.act_window">
+            <field name="name">appointment</field>
+            <field name="res_model">hms.appointment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
+            </field>
+        </record>
+        <menuitem id="hms_appointment_menu" action="hms_appointment_action"
+                    sequence="4"/>
+
+
+
+</odoo>
+
