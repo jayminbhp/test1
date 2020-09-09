@@ -20,7 +20,7 @@ class hmsdoctor(models.Model):
     #note = fields.Text(string='prescription'
     #mobile_No = fields.Char(string= ' Mobile No.' , required = True)
     #amount = fields.Float (string = 'Amount')
-    
+    age=fields.Char(string='Age',required=True)
     note = fields.Text(string='prescription', translate=False) 
     doctor_name_id = fields.Many2one('hms.patient', string='Patient')
 

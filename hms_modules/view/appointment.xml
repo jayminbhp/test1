@@ -7,13 +7,17 @@
             <field name="model">hms.appointment</field>
             <field name="arch" type="xml">
                 <tree string="Tree">
+                  <field name="iid"/>
                   <field name="patient_id"/>
                   <field name="phy_cabin_id"/>
+                  <field name="app_age"/>
                   <field name="app_date"/>
                   <field name="app_urgency_level"/>
                               <!-- <field name="doc_name"/> -->
                   <field name="app_purpose"/>
                   <field name="app_state"/>
+                  <field name="name"/>
+
                     <!-- <field name="patient_id"/>
                     <field name="phy_cabin_id"/>
                     <field name="app_urgency_level"/>
@@ -23,17 +27,123 @@
                 </tree>
             </field>
         </record>
+
+       
+
+       <record model="ir.ui.view" id="appointment_kanban_view">
+            <field name="name">hms.appointment.kanban</field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <kanban class="hmsappointment_kanban">
+                  <field name="iid"/>
+                  <field name="name"/>
+                  <field name="patient_id"/>
+                  <field name="app_date"/>       
+                  <field name="app_responsible_jr_doc"/>
+                  <field name="app_complain"/>
+                  <!-- <progressbar field="name" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/> -->
+                  <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                      
+                                      
+                                    </div>
+                                </div>
+
+                                  <ul>
+                                   <li><strong><field name="name"/></strong></li>
+                                  </ul>
+  
+
+                                <ul>
+                                  <li><strong>Patient_id:-</strong><field name="name"/></li>
+                                </ul>
+                                <ul>
+                                  <li><strong>Name :-</strong><field name="patient_id"/></li>
+                                </ul>
+                                <ul>
+                                  <li><strong>Complain:-</strong><field name="app_complain"/></li>
+                                </ul>
+                                <ul>
+                                        <li><strong>Doctor:- <field name="app_responsible_jr_doc"></field></strong></li>
+                                </ul>
+                          </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+        <record id="hms_appointment_pivot" model="ir.ui.view">
+            <field name="name">hmsappointment_pivot</field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <pivot string="pivot">
+                  <field name="patient_id"/>
+                 <!--  <field name="phy_cabin_id"/>
+                  <field name="app_date"/> -->
+                  <field name="app_urgency_level"/>
+                </pivot>
+            </field>
+
+        </record>
+        <record id="hms_appointment_graph" model="ir.ui.view">
+            <field name="name">hmsappointment_graph</field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <pivot string="graph">
+                  <!-- <field name="patient_id"/>
+                  <field name="phy_cabin_id"/> -->
+                  <field name="patient_id"/>
+                  <field name="phy_cabin_id" />
+                </pivot>
+            </field>
+
+        </record>
+        <record id="hms_appointment_calendar" model="ir.ui.view">
+            <field name="name">hmsappointment_calendar</field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <calendar string="calendar" date_start="app_date">
+                    <!-- <field name="patient_id" /> -->
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
         <record id="hms_appointment_form" model="ir.ui.view">
             <field name="name"></field>
             <field name="model">hms.appointment</field>
             <field name="arch" type="xml">
+            
                 <form>
+
+                  <header>
+                    <button name="confirm_record_name" string="Confirm"
+                              type="object" class="oe_highlight"/>
+                    <field name="app_state" widget="statusbar" statusbar_visible="draft,waiting,confirmed"/>
+                  </header>
                     <sheet>
                         <group>
 
+                          
+                          
                           <group>
+                              <field name="iid"/>
+                              <field name="name"/>
                               <field name="patient_id"/>
                               <field name="phy_cabin_id"/>
+                              <field name="app_age"/>
                               <!-- <field name="patient_name_id"/> -->
                               <!-- <field name="note"/> -->
                               <!-- <field name="patient_id"/> -->
@@ -48,7 +158,7 @@
                               <field name="app_urgency_level"/>
                               <!-- <field name="doc_name"/> -->
                               <field name="app_purpose"/>
-                              <field name="app_state"/>
+                              <!-- <field name="app_state"/> -->
 
                             </group>
                             
@@ -87,15 +197,14 @@
                            <!-- </group>                       -->
                           <!-- </page> -->
                       <!-- </notebook>  -->
-                    </sheet>
-
+                    </sheet>                                                           
                 </form>
             </field>
         </record>
         <record id="hms_appointment_action" model="ir.actions.act_window">
             <field name="name">appointment</field>
             <field name="res_model">hms.appointment</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,pivot,graph,calendar,kanban</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
             </field>

@@ -15,7 +15,7 @@
                 </tree>
             </field>
         </record>
-        <record id="hmspatient_tree" model="ir.ui.view">
+        <record id="hmspatient_form" model="ir.ui.view">
             <field name="name"></field>
             <field name="model">hms.patient</field>
             <field name="arch" type="xml">
@@ -28,6 +28,7 @@
                               <field name="patient_type"/>
                               <field name="patient_name_id"/>
                               <field name="note"/>
+                              <field name="age"/>
                               <!-- <field name="patient_id"/> -->
                             
                             
@@ -36,6 +37,7 @@
                            </group>
                            <group>
                               <field name="patient_pic" widget='image' class="oe_avatar"/>
+                              <field name="user_signature" widget="signature"/>
                               <field name="mobile"/>
                               <field name="amount_id"/>
                               <!-- <field name="doc_name"/> -->
@@ -82,10 +84,59 @@
                 </form>
             </field>
         </record>
+
+
+        <record model="ir.ui.view" id="patient_kanban_view">
+            <field name="name">hms.patient.kanban</field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <kanban class="hmspatient_kanban">
+                  <field name="name"/>
+                  <field name="Date_of_Birth"/>
+                  <field name="patient_add"/>       
+                  <!-- <field name="app_responsible_jr_doc"/>
+                  <field name="app_complain"/> -->
+                  <!-- <progressbar field="name" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/> -->
+                  <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                      
+                                      
+                                    </div>
+                                </div>
+
+                                  <ul>
+                                   <li><strong><field name="name"/></strong></li>
+                                  </ul>
+  
+
+                                <ul>
+                                  <li><strong>Patient_type:-</strong><field name="name"/></li>
+                                </ul>
+                                <ul>
+                                  <li><strong>Name :-</strong><field name="Date_of_Birth"/></li>
+                                </ul>
+                                <ul>
+                                  <li><strong>Complain:-</strong><field name="patient_add"/></li>
+                                </ul>
+                                <ul>
+                                        <li><strong>Doctor:- <field name="user_signature"></field></strong></li>
+                                </ul>
+                          </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+
         <record id="rounding_list_action" model="ir.actions.act_window">
             <!-- <field name="name">Patient</field> -->
             <field name="res_model">hms.patient</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
             </field>

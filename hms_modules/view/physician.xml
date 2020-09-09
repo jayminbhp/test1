@@ -18,10 +18,7 @@
             <field name="model">hms.doctor</field>
             <field name="arch" type="xml">
                 <form>
-                    <heaeder>
-                        <button name="confirm_record_name" string="Confirm"
-                        type="object" class="oe_highlight"/>
-                    </heaeder>
+                    
                     <sheet>
                         <group>
 
@@ -31,7 +28,7 @@
                             <field name="physician_type"/>
                             <field name="doctor_name_id"/>
                             <field name="note"/>
-                        
+                            <field name="age"/>
                            <!--  <field name="company_id" groups="base.group_multi_company"/> -->
                         </group>
                     </sheet>

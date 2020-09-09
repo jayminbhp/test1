@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="hms_prescription_tree" model="ir.ui.view">
+            <field name="name">hms.prescription_tree</field>
+            <field name="model">hms.prescription</field>
+            <field name="arch" type="xml">
+                <tree string="Tree">
+                 <field name="name"/>                
+                 <field name="prescribed_doctor"/>
+                 <field name="medicament"/>
+                </tree>
+            </field>
+        </record>
+
+		<record id="prescription_type_form" model="ir.ui.view">
+            <field name="name">hms.prescription_form</field>
+            <field name="model">hms.prescription</field>
+            <field name="arch" type="xml">
+                <form>
+                    
+                    <sheet>
+                        <group>
+
+                            <group>
+                            	<field name="name"/>                
+                            	<field name="prescribed_doctor"/>
+                            	<field name="medicament"/>
+                            </group>
+                            <group>
+                            	<field name="patient_id"/>
+                            	<field name="disease"/>                       
+                            	<field name="prescription_date"/>
+    
+                            </group>
+                           
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+          <record id="hms_prescription_action" model="ir.actions.act_window">
+            <field name="name">prescription</field>
+            <field name="res_model">hms.prescription</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
+            </field>
+        </record>
+        <menuitem id="hms_prescription_menu" action="hms_prescription_action"
+                    sequence="4"/>
+                    
+</odoo>    

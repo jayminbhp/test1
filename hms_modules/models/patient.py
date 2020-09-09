@@ -25,7 +25,8 @@ class hmspatient(models.Model):
     note = fields.Text(string='Description', translate=True) 
     pat_purpose=fields.Char(string='Purpose',required=False)
     patient_name_id = fields.Many2one('hms.doctor', string='Doctor')
-
+    age=fields.Char(string='Age',required=True)
+    user_signature = fields.Binary(string='Signature')
     patient_pic = fields.Image("patient pic", max_width=1920, max_height=1920)
 
     # reconciled_invoice_ids = fields.Many2many('account.move', string='Reconciled Invoices', compute='_compute_reconciled_invoice_ids', help="Invoices whose journal items have been reconciled with these payments.")
