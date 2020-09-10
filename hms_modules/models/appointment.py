@@ -31,7 +31,11 @@ class hmsappointment(models.Model):
         ('draft','Draft'),
         ('waiting','Waiting'),
         ('confirmed','Confirmed'),
+        ('reject','Rejected'),
     ],string='Appointment Stage',default ='draft')
+    app_reject=fields.Char(string='Reject')
+
+
     @api.model
     def create(self, vals):
        
@@ -47,6 +51,10 @@ class hmsappointment(models.Model):
     def confirm_record_name(self):
         
         self.app_state="confirmed"
+
+    def cancel_record_name(self):
+        
+        self.app_state="reject"
  
     
     def write(self,vals):

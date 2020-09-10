@@ -131,6 +131,8 @@
                   <header>
                     <button name="confirm_record_name" string="Confirm"
                               type="object" class="oe_highlight"/>
+                    <button name="%(hms_reject_action)d" string="Reject"
+                              type="action" class="btn-primary"/>
                     <field name="app_state" widget="statusbar" statusbar_visible="draft,waiting,confirmed"/>
                   </header>
                     <sheet>
@@ -158,7 +160,7 @@
                               <field name="app_urgency_level"/>
                               <!-- <field name="doc_name"/> -->
                               <field name="app_purpose"/>
-                              <!-- <field name="app_state"/> -->
+                              <field name="app_reject"/>
 
                             </group>
                             
