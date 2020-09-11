@@ -19,6 +19,7 @@ This module contains all the common features of hospial management system and he
     'view/appointment.xml',
     'view/physician.xml',
     'view/prescription.xml',
+    'view/extention.xml',
     'data/ir_sequence_data.xml'
 
 

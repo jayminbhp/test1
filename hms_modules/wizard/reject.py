@@ -20,18 +20,4 @@ class hmsreject(models.TransientModel):
 		print("uhsdic",self._context.get('active_ids', []))
 		appointment.app_reject=self.reason
 		appointment.app_state="reject"
-		# vals="details"
-
-		# if 'reject'in vals:
-		# 	if vals.get('app_reject'):
-		# 		app_reject="works"
-		# 		print("uhsdic",app_reject)
-		# 	else:
-		# 		app_reject="    "
-				
-
-		# print("uhsdic",app_reject)
-			   
-		# vals['app_reject'] = app_reject
-		# record = super(hmsappointment,self).write(vals)
-		# return record
+		

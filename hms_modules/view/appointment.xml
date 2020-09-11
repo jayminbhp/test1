@@ -204,7 +204,7 @@
             </field>
         </record>
         <record id="hms_appointment_action" model="ir.actions.act_window">
-            <field name="name">appointment</field>
+            <field name="name">Appointment</field>
             <field name="res_model">hms.appointment</field>
             <field name="view_mode">tree,form,pivot,graph,calendar,kanban</field>
             <field name="help" type="html">

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">hms.appointment.form.inherit</field>
+            <field name="model">hms.appointment</field>
+            <!-- <field name="priority">9</field> -->
+            <field name="inherit_id" ref="hms_appointment_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="surname"/>
+                </field>
+            </field>
+
+        </record>
+</odoo>

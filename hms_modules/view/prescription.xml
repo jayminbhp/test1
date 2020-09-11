@@ -40,7 +40,7 @@
             </field>
         </record>
           <record id="hms_prescription_action" model="ir.actions.act_window">
-            <field name="name">prescription</field>
+            <field name="name">Prescription</field>
             <field name="res_model">hms.prescription</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">

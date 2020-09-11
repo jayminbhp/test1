@@ -29,6 +29,6 @@
 				<p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
 			</field>
 	</record>
-	<menuitem id="hms_reject_menu" action="hms_reject_action"
-					sequence="4"/>
+	<!-- <menuitem id="Reject" action="hms_reject_action"
+					sequence="4"/> -->
 </odoo>
